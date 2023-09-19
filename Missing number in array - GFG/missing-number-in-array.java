@@ -18,7 +18,7 @@ class GFG {
                 array[i] = Integer.parseInt(str[i]);
             }
             Solution sln = new Solution();
-            System.out.println(sln.MissingNumber(array, n));
+            System.out.println(sln.missingNumber(array, n));
         }
     }
 }
@@ -28,18 +28,15 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int MissingNumber(int array[], int n) {
+    int missingNumber(int array[], int n) {
         // Your Code Here
-        HashMap<Integer,Integer> map = new HashMap<>();
-        int miss = 0;
-        for(int i = 0; i<=n-2;i++){
-            map.put(array[i],i);
+        int sum1,sum2;
+        sum2 = 0;
+        sum1 = n*(n+1)/2;
+        
+        for(int i = 0; i<n-1 ; i++){
+            sum2+=array[i];
         }
-        for(int j = n; j>=1;j--){
-            if(!map.containsKey(j)){
-                miss = j;
-            }
-        }
-        return miss;
+        return sum1-sum2;
     }
 }
